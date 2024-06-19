@@ -1,23 +1,23 @@
 :root {
-font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-line-height: 1.5;
-font-weight: 400;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-color-scheme: light dark;
-color: rgba(255, 255, 255, 0.87);
-background-color: #242424;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 
-font-synthesis: none;
-text-rendering: optimizeLegibility;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
 body {
-margin: 0;
-display: flex;
-justify-content: center;
+  margin: 0;
+  display: flex;
+  justify-content: center;
 
 
 }
@@ -25,192 +25,220 @@ justify-content: center;
 
 
 button:hover {
-border-color: #646cff;
+  border-color: #646cff;
 }
 
 button:focus,
 button:focus-visible {
-outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
 
 #app {
-max-width: 1280px;
-padding: 2rem;
-text-align: center;
+  max-width: 1280px;
+  padding: 2rem;
+  text-align: center;
 
 }
 
 @media (prefers-color-scheme: light) {
-:root {
-  color: #213547;
-  background-color: #ffffff;
-}
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
 
-a:hover {
-  color: #747bff;
-}
+  a:hover {
+    color: #747bff;
+  }
 
-button {
-  background-color: #f9f9f9;
-}
+  button {
+    background-color: #f9f9f9;
+  }
 }
 
 
 #loader {
-width: 68px;
-height: 68px;
-border-radius: 50%;
-position: relative;
-animation: rotate 1s linear infinite;
-margin: 0 auto;
-margin-top: 200px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+  margin: 0 auto;
+  margin-top: 150px;
 }
 
 #loader::before,
 #loader::after {
-content: "";
-box-sizing: border-box;
-position: absolute;
-inset: 0px;
-border-radius: 50%;
-border: 5px solid #FFF;
-animation: prixClipFix 2s linear infinite;
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #FFF;
+  animation: prixClipFix 2s linear infinite;
 }
 
 #loader::after {
-transform: rotate3d(90, 90, 0, 180deg);
-border-color: #FF3D00;
+  transform: rotate3d(90, 90, 0, 180deg);
+  border-color: #FF3D00;
 }
 
 @keyframes rotate {
-0% {
-  transform: rotate(0deg)
-}
+  0% {
+    transform: rotate(0deg)
+  }
 
-100% {
-  transform: rotate(360deg)
-}
+  100% {
+    transform: rotate(360deg)
+  }
 }
 
 @keyframes prixClipFix {
-0% {
-  clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
-}
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+  }
 
-50% {
-  clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
-}
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+  }
 
-75%,
-100% {
-  clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
-}
+  75%,
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+  }
 }
 
 
 .Repos-css {
-margin-top: 200px;
+  margin-top: 65px;
 }
 
 .Repos-css a {
-color: limegreen;
-font-size: 40px;
+  color: limegreen;
+  font-size: 30px;
 }
 
 .Home-css {
-display: block;
-margin: auto;
+  display: block;
+  margin: auto;
 }
 
 .Home-css img {
-display: flex;
+  display: flex;
 
-position: fixed;
-right: 10px;
-top: 5px;
+  position: fixed;
+  right: 10px;
+  top: 5px;
 
-width: 80px;
-border-radius: 40px;
+  width: 80px;
+  border-radius: 40px;
 }
 
 .Home-css h2 {
-font-style: italic;
-margin-top: 200px;
-text-align: center;
+  font-style: italic;
+  margin-top: 200px;
+  text-align: center;
 
 }
 
 .Home-css h4 {
-display: flex;
-position: fixed;
-right: 5px;
-top: 65px;
-font-style: italic;
+  display: flex;
+  position: fixed;
+  right: 5px;
+  top: 65px;
+  font-style: italic;
 }
 
 .click-button {
-display: block;
-position: absolute;
-bottom: 150px;
-margin: auto;
-font-size: 20px;
-background-color: red;
+  display: block;
+  position: absolute;
+  bottom: 150px;
+  margin: auto;
+  font-size: 20px;
+  background-color: red;
 
-border-style: none;
-font-weight: bold;
+  border-style: none;
+  font-weight: bold;
 
 
-padding: 10px 25px;
+  padding: 10px 25px;
 
 }
 
 
 .click-button:hover {
-font-style: italic;
-cursor: pointer;
-border-style: none;
+  font-style: italic;
+  cursor: pointer;
+  border-style: none;
 
 }
 
 .Paginate-css {
-display: flex;
-position: absolute;
-bottom: 50px;
-align-items: center;
-width: 30%;
+  display: flex;
+  position: absolute;
+  bottom: 18px;
+  align-items: center;
+  width: 30%;
 }
 
-/*.Paginate-css .previous-button {
-flex: 6;} */
+
 
 .Paginate-css button {
-display: block;
-margin: auto;
-background-color: white;
-color: black;
-font-weight: bold;
-border-style: none;
-border-radius: 4px;
+  display: block;
+  margin: auto;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border-style: none;
+  border-radius: 4px;
 
-padding: 4px 20px;
+  padding: 4px 20px;
 }
 
 .Paginate-css button:hover {
-cursor: pointer;
-color: white;
-background-color: black;
+  cursor: pointer;
+  color: white;
+  background-color: black;
 }
 
 .Paginate-css button:focus {
-background-color: limegreen;
-color: whitesmoke;
+  background-color: limegreen;
+  color: whitesmoke;
 }
 
 
 .error-page {
-margin-top: 250px;
-font-size: 30px;
-font-style: italic;
-color: red;
+  margin-top: 120px;
+  font-size: 30px;
+  font-style: italic;
+  color: red;
+}
+
+
+.search-button {
+  margin-top: 50px;
+  padding: 8px 8px;
+
+
+  width: 350px;
+  border-radius: 20px;
+  border-color: red;
+  background-color: white;
+
+  cursor: pointer;
+  color: black;
+  font-size: 20px;
+}
+
+
+.search-button::placeholder {
+  color: black;
+  font-style: italic;
+  font-size: 15px;
+
+
+}
+
+.search-button:active {
+  border-color: red;
 }

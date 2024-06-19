@@ -8,7 +8,7 @@ export default function usePagination(data, itemsPerPage = 1) {
     return Math.ceil(data.value.length / itemsPerPage);
   });
 
-  const paginatedData = computed(() => {
+ const paginatedData = computed(() => {
     if (!data.value) return [];
     const startIndex = (currentPage.value - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;

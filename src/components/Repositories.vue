@@ -1,54 +1,83 @@
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, watch, computed } from "vue";
 import usePagination from "../PaginationComposition";
 
-const data = ref(null);
+const data = ref([]);
 const error = ref(null);
+const search = ref("");
+const filteredData = ref([]);
+const isLoading = ref(false);
 
-const itemsPerPage = 1;
+const itemsPerPage = 2;
 const { currentPage, totalPages, paginatedData, goToPage } = usePagination(
-data,
-itemsPerPage
+  filteredData,
+  itemsPerPage
 );
 
 onMounted(() => {
-fetch("https://api.github.com/users/CollinXon/repos")
-  .then((res) => res.json())
-  .then((json) => (data.value = json))
-  .catch((err) => (error.value = err));
+  isLoading.value = true;
+  fetch("https://api.github.com/users/CollinXon/repos")
+    .then((res) => res.json())
+    .then((json) => {
+      data.value = json;
+      filteredData.value = json;
+    })
+    .catch((err) => (error.value = err))
+    .finally(() => {
+      isLoading.value = false;
+    });
+});
+
+watch([search, data], () => {
+  if (search.value) {
+    filteredData.value = data.value.filter((repo) =>
+      repo.name.toLowerCase().includes(search.value.toLowerCase())
+    );
+  } else {
+    filteredData.value = data.value;
+  }
+  goToPage(1); // Reset to the first page on search change
 });
 </script>
 <template>
-<div>
-  <div v-if="error" class="error-page">
-    Oops! Error encountered: {{ error.message }}
-  </div>
+  <div>
+    <input
+      type="text"
+      placeholder="Search Repository Here...."
+      v-model="search"
+      class="search-button"
+    />
 
-  <div v-else-if="data">
-    <div
-      v-for="(repo, index) in paginatedData"
-      :key="index"
-      class="Repos-css"
-    >
-      <a :href="repo.html_url">{{ repo.name }}</a>
+    <div v-if="error" class="error-page">
+      Oops! Error encountered: {{ error.message }}
     </div>
-    <div class="Paginate-css">
-      <button
-        @click="goToPage(currentPage - 1)"
-        :disabled="currentPage === 1"
-        class="previous-button"
+
+    <div v-else-if="isLoading" id="loader"></div>
+
+    <div v-else="data">
+      <div
+        v-for="(repo, index) in paginatedData"
+        :key="index"
+        class="Repos-css"
       >
-        Previous
-      </button>
-      <button
-        @click="goToPage(currentPage + 1)"
-        :disabled="currentPage === totalPages"
-        class="next-button"
-      >
-        Next
-      </button>
+        <a :href="repo.html_url">{{ repo.name }}</a>
+      </div>
+      <div class="Paginate-css">
+        <button
+          @click="goToPage(currentPage - 1)"
+          :disabled="currentPage === 1"
+          class="previous-button"
+        >
+          Previous
+        </button>
+        <button
+          @click="goToPage(currentPage + 1)"
+          :disabled="currentPage === totalPages"
+          class="next-button"
+        >
+          Next
+        </button>
+      </div>
     </div>
   </div>
-  <div v-else id="loader"></div>
-</div>
 </template>
