@@ -7,6 +7,10 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+  overflow-x: hidden;
+
+
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -18,6 +22,10 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
+
+  width: 100%;
+
+
 
 
 }
@@ -241,4 +249,55 @@ button:focus-visible {
 
 .search-button:active {
   border-color: red;
+}
+
+
+
+@media (max-width:480px) {
+  body {
+    overflow: hidden
+  }
+
+
+  .Paginate-css button {
+    display: block;
+    margin-left: 35px;
+    margin-bottom: 50px;
+    align-items: center;
+  }
+
+
+  .Repos-css {
+    margin-top: 105px;
+  }
+
+  .search-button {
+    width: 250px
+  }
+
+
+
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .Repos-css {
+    margin-top: 250px;
+  }
+
+  .Repos-css a {
+    font-size: 50px;
+  }
+
+  .Paginate-css button {
+    display: block;
+    margin-top: -150px;
+    margin-left: 80px;
+  }
+
+
+
+  .search-button {
+    width: 400px
+  }
 }
